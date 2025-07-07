@@ -2,37 +2,190 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>شیدر پک‌ها - سوپر امیر</title>
+  <title>سایت سوپر امیر</title>
   <style>
     body {
-      background-color: red;
+      background-color: green;
       margin: 0;
       padding: 0;
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
+      transition: background-color 0.5s ease;
     }
-    img {
+
+    nav {
+      background-color: #004d00;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      color: #00ff00;
+      text-decoration: underline;
+    }
+
+    #content {
+      padding: 30px 20px;
+      min-height: 400px;
+      transition: background-color 0.5s ease;
+      background-color: transparent;
+    }
+
+    #content.red-bg {
+      background-color: red;
+      border-radius: 10px;
+      padding: 30px 20px;
+      margin: 20px;
+    }
+
+    #content img {
       max-width: 90%;
       height: auto;
-      margin: 30px 0;
-      border: 5px solid #fff;
+      border: 5px solid white;
+      border-radius: 8px;
+      margin: 20px 0;
     }
-    a {
-      color: #fff;
-      font-size: 24px;
+
+    #content a.download-link {
+      color: white;
+      font-size: 22px;
+      text-decoration: underline;
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 15px;
+    }
+
+    /* متن اصلی پیش فرض */
+    #main-text h1 {
+      font-size: 80px;
+      margin: 20px 0;
+    }
+    #main-text h2 {
+      font-size: 28px;
+      margin: 10px 0;
+    }
+    #main-text p {
+      font-size: 24px;
+      margin: 10px 0;
+    }
+    video {
+      display: block;
+      margin: 30px auto;
+      max-width: 90%;
+      height: auto;
+      border-radius: 10px;
     }
   </style>
 </head>
-
 <body>
-  <h1>شیدر پک‌ها</h1>
-  <p>دانلود شیدر پک:</p>
-  <img src="لینک-عکس-شیدر-پک-اینجا" alt="شیدر پک">
-  <br>
-  <a href="لینک-دانلود-شیدر-پک">دانلود شیدر پک</a>
+
+  <nav>
+    <a id="menu-shaders" class="active">شیدر پک‌ها</a>
+    <a id="menu-games">بازی‌ها</a>
+    <a id="menu-software">نرم‌افزارها</a>
+  </nav>
+
+  <div id="content">
+    <!-- محتوای پویا اینجا ظاهر می‌شه -->
+  </div>
+
+  <div id="main-text">
+    <h1>سایت سوپر امیر</h1>
+    <h2>سلام دوستان اینجا سایت منه که خودم ساختمش این سایت فعلا آماده نشده و من درحال ساختنشم اما اگه لینک کانال آپارات منو می‌خوای اینه:</h2>
+    <p><a href="https://www.aparat.com/ambexk6634" target="_blank" rel="noopener noreferrer">https://www.aparat.com/ambexk6634</a></p>
+    <h2>همچنین ما کانال رو روبیکا داریم می‌تونی با لینک زیر وارد کانالمون بشی:</h2>
+    <p><a href="https://rubika.ir/joinc/CJGAEDJI0BEEWJZSNPIRWHRJVFLPNSSC" target="_blank" rel="noopener noreferrer">https://rubika.ir/joinc/CJGAEDJI0BEEWJZSNPIRWHRJVFLPNSSC</a></p>
+    <h1>مشتی نمی‌خوای کانال ما رو دنبال کنی ❤😊😊😊❤</h1>
+    <h1>در حال ساختن سایت...</h1>
+
+    <video autoplay loop muted>
+      <source src="852292-hd_1728_1080_25fps(3).mp4" type="video/mp4">
+      مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+    </video>
+  </div>
+
+  <script>
+    const content = document.getElementById('content');
+    const mainText = document.getElementById('main-text');
+    const menuShaders = document.getElementById('menu-shaders');
+    const menuGames = document.getElementById('menu-games');
+    const menuSoftware = document.getElementById('menu-software');
+    const navLinks = [menuShaders, menuGames, menuSoftware];
+
+    // اطلاعات بخش‌ها (عکس و لینک)
+    const data = {
+      shaders: {
+        title: 'شیدر پک‌ها',
+        imgSrc: 'https://via.placeholder.com/600x400?text=Shader+Pack', // عکس تستی، بعدا لینک خودتو بذار
+        downloadLink: 'https://example.com/shader-pack.zip',
+        description: 'دانلود شیدر پک‌های خفن و با کیفیت بالا.'
+      },
+      games: {
+        title: 'بازی‌ها',
+        imgSrc: 'https://via.placeholder.com/600x400?text=Games', // عکس تستی
+        downloadLink: 'https://example.com/game-download.zip',
+        description: 'دانلود بازی‌های مهیج و جدید.'
+      },
+      software: {
+        title: 'نرم‌افزارها',
+        imgSrc: 'https://via.placeholder.com/600x400?text=Software', // عکس تستی
+        downloadLink: 'https://example.com/software-download.zip',
+        description: 'دانلود نرم‌افزارهای کاربردی و جدید.'
+      }
+    };
+
+    function clearActive() {
+      navLinks.forEach(link => link.classList.remove('active'));
+    }
+
+    function showContent(section) {
+      clearActive();
+      if (section === 'shaders') {
+        menuShaders.classList.add('active');
+      } else if (section === 'games') {
+        menuGames.classList.add('active');
+      } else if (section === 'software') {
+        menuSoftware.classList.add('active');
+      }
+
+      // اگر بخوای محتوا رو نشون بدی:
+      content.classList.add('red-bg');
+      mainText.style.display = 'none';
+
+      const d = data[section];
+      content.innerHTML = `
+        <h1>${d.title}</h1>
+        <p>${d.description}</p>
+        <img src="${d.imgSrc}" alt="${d.title}">
+        <br>
+        <a href="${d.downloadLink}" target="_blank" class="download-link">دانلود ${d.title}</a>
+      `;
+      // پس‌زمینه صفحه (body) رو هم قرمز می‌کنیم یا نه؟  
+      // اگه خواستی، می‌تونیم این خط رو فعال کنیم:
+      // document.body.style.backgroundColor = 'red';
+    }
+
+    // بارگذاری اولیه با نمایش شیدر پک‌ها
+    showContent('shaders');
+
+    // اضافه کردن رویداد کلیک به منوها
+    menuShaders.addEventListener('click', () => showContent('shaders'));
+    menuGames.addEventListener('click', () => showContent('games'));
+    menuSoftware.addEventListener('click', () => showContent('software'));
+  </script>
+
 </body>
 </html>
+
 
