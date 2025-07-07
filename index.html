@@ -1,190 +1,230 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>سایت سوپر امیر</title>
-  <style>
-    body {
-      background-color: green;
-      margin: 0;
-      padding: 0;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      transition: background-color 0.5s ease;
-    }
+<meta charset="UTF-8" />
+<title>سایت سوپر امیر</title>
+<style>
+  body {
+    background-color: green;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    transition: background-color 0.5s ease;
+  }
 
-    nav {
-      background-color: #004d00;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+  nav {
+    background-color: #004d00;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 20px;
-      font-size: 20px;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
 
-    nav a:hover, nav a.active {
-      color: #00ff00;
-      text-decoration: underline;
-    }
+  nav a:hover, nav a.active {
+    color: #00ff00;
+    text-decoration: underline;
+  }
 
-    #content {
-      padding: 30px 20px;
-      min-height: 400px;
-      transition: background-color 0.5s ease;
-      background-color: transparent;
-    }
+  #content {
+    padding: 30px 20px;
+    min-height: 400px;
+    transition: background-color 0.5s ease;
+    background-color: transparent;
+  }
 
-    #content.red-bg {
-      background-color: red;
-      border-radius: 10px;
-      padding: 30px 20px;
-      margin: 20px;
-    }
+  #content.red-bg {
+    background-color: red;
+    border-radius: 10px;
+    padding: 30px 20px;
+    margin: 20px;
+  }
 
-    #content img {
-      max-width: 90%;
-      height: auto;
-      border: 5px solid white;
-      border-radius: 8px;
-      margin: 20px 0;
-    }
+  /* کارت‌های باکس */
+  .box-container {
+    display: flex;
+    justify-content: flex-start; /* از راست شروع کن */
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+  }
 
-    #content a.download-link {
-      color: white;
-      font-size: 22px;
-      text-decoration: underline;
-      display: inline-block;
-      margin-top: 15px;
-    }
+  .box {
+    background-color: #222;
+    border: 2px solid white;
+    border-radius: 10px;
+    width: 220px;
+    flex-shrink: 0;
+    color: white;
+    text-align: center;
+    padding: 15px;
+  }
 
-    /* متن اصلی پیش فرض */
-    #main-text h1 {
-      font-size: 80px;
-      margin: 20px 0;
-    }
-    #main-text h2 {
-      font-size: 28px;
-      margin: 10px 0;
-    }
-    #main-text p {
-      font-size: 24px;
-      margin: 10px 0;
-    }
-    video {
-      display: block;
-      margin: 30px auto;
-      max-width: 90%;
-      height: auto;
-      border-radius: 10px;
-    }
-  </style>
+  .box img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .download-btn {
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #00aa00;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  .download-btn:hover {
+    background-color: #007700;
+  }
+
+  /* متن اصلی */
+  #main-text h1 {
+    font-size: 80px;
+    margin: 20px 0;
+  }
+  #main-text h2 {
+    font-size: 28px;
+    margin: 10px 0;
+  }
+  #main-text p {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  video {
+    display: block;
+    margin: 30px auto;
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+  }
+</style>
 </head>
 <body>
 
-  <nav>
-    <a id="menu-home" class="active">صفحه اصلی</a>
-    <a id="menu-shaders">شیدر پک‌ها</a>
-    <a id="menu-games">بازی‌ها</a>
-    <a id="menu-software">نرم‌افزارها</a>
-  </nav>
+<nav>
+  <a id="menu-home" class="active">صفحه اصلی</a>
+  <a id="menu-shaders">شیدر پک‌ها</a>
+  <a id="menu-games">بازی‌ها</a>
+  <a id="menu-software">نرم‌افزارها</a>
+</nav>
 
-  <div id="content"></div>
+<div id="content"></div>
 
-  <div id="main-text">
-    <h1>سایت سوپر امیر</h1>
-    <h2>سلام دوستان اینجا سایت منه که خودم ساختمش این سایت فعلا آماده نشده و من درحال ساختنشم اما اگه لینک کانال آپارات منو می‌خوای اینه:</h2>
-    <p><a href="https://www.aparat.com/ambexk6634" target="_blank" rel="noopener noreferrer">https://www.aparat.com/ambexk6634</a></p>
-    <h2>همچنین ما کانال رو روبیکا داریم می‌تونی با لینک زیر وارد کانالمون بشی:</h2>
-    <p><a href="https://rubika.ir/joinc/CJGAEDJI0BEEWJZSNPIRWHRJVFLPNSSC" target="_blank" rel="noopener noreferrer">https://rubika.ir/joinc/CJGAEDJI0BEEWJZSNPIRWHRJVFLPNSSC</a></p>
-    <h1>مشتی نمی‌خوای کانال ما رو دنبال کنی ❤😊😊😊❤</h1>
-    <h1>در حال ساختن سایت...</h1>
+<div id="main-text">
+  <h1>سایت سوپر امیر</h1>
+  <h2>سلام دوستان اینجا سایت منه که خودم ساختمش این سایت فعلا آماده نشده و من درحال ساختنشم اما اگه لینک کانال آپارات منو می‌خوای اینه:</h2>
+  <p><a href="https://www.aparat.com/ambexk6634" target="_blank" rel="noopener noreferrer">https://www.aparat.com/ambexk6634</a></p>
+  <h2>همچنین ما کانال رو روبیکا داریم می‌تونی با لینک زیر وارد کانالمون بشی:</h2>
+  <p><a href="https://rubika.ir/joinc/CJGAEDJI0BEEWJZSNPIRWHRJVFLPNSSC" target="_blank" rel="noopener noreferrer">https://rubika.ir/joinc/CJGAEDJI0BEEWJZSNPIRWHRJVFLPNSSC</a></p>
+  <h1>مشتی نمی‌خوای کانال ما رو دنبال کنی ❤😊😊😊❤</h1>
+  <h1>در حال ساختن سایت...</h1>
 
-    <video autoplay loop muted>
-      <source src="852292-hd_1728_1080_25fps(3).mp4" type="video/mp4">
-      مرورگر شما از ویدیو پشتیبانی نمی‌کند.
-    </video>
-  </div>
+  <video autoplay loop muted>
+    <source src="852292-hd_1728_1080_25fps(3).mp4" type="video/mp4">
+    مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+  </video>
+</div>
 
-  <script>
-    const content = document.getElementById('content');
-    const mainText = document.getElementById('main-text');
-    const menuHome = document.getElementById('menu-home');
-    const menuShaders = document.getElementById('menu-shaders');
-    const menuGames = document.getElementById('menu-games');
-    const menuSoftware = document.getElementById('menu-software');
-    const navLinks = [menuHome, menuShaders, menuGames, menuSoftware];
+<script>
+  const content = document.getElementById('content');
+  const mainText = document.getElementById('main-text');
+  const menuHome = document.getElementById('menu-home');
+  const menuShaders = document.getElementById('menu-shaders');
+  const menuGames = document.getElementById('menu-games');
+  const menuSoftware = document.getElementById('menu-software');
+  const navLinks = [menuHome, menuShaders, menuGames, menuSoftware];
 
-    const data = {
-      shaders: {
-        title: 'شیدر پک‌ها',
-        imgSrc: 'https://via.placeholder.com/600x400?text=Shader+Pack',
-        downloadLink: 'https://example.com/shader-pack.zip',
-        description: 'دانلود شیدر پک‌های خفن و با کیفیت بالا.'
+  // داده‌های باکس‌ها برای هر بخش
+  const dataBoxes = {
+    shaders: [
+      {
+        title: 'Shader Pack 1',
+        imgSrc: 'https://via.placeholder.com/220x140?text=Shader+Pack+1',
+        downloadLink: 'https://example.com/shader1.zip'
       },
-      games: {
-        title: 'بازی‌ها',
+      {
+        title: 'Shader Pack 2',
+        imgSrc: 'https://via.placeholder.com/220x140?text=Shader+Pack+2',
+        downloadLink: 'https://example.com/shader2.zip'
+      }
+    ],
+    games: [
+      {
+        title: 'Classicube',
         imgSrc: 'https://static-cdn.jtvnw.net/jtv_user_pictures/classic-cube-profile_image-8cc25d7e3e10791f-300x300.png',
-        downloadLink: 'https://classicube.net/download',
-        description: 'دانلود مستقیم بازی کلاسیک کوب (Classicube).'
-      },
-      software: {
-        title: 'نرم‌افزارها',
-        imgSrc: 'https://via.placeholder.com/600x400?text=Software',
-        downloadLink: 'https://example.com/software-download.zip',
-        description: 'دانلود نرم‌افزارهای کاربردی و جدید.'
+        downloadLink: 'https://classicube.net/download'
       }
-    };
+    ],
+    software: [
+      {
+        title: 'Software 1',
+        imgSrc: 'https://via.placeholder.com/220x140?text=Software+1',
+        downloadLink: 'https://example.com/software1.zip'
+      }
+    ]
+  };
 
-    function clearActive() {
-      navLinks.forEach(link => link.classList.remove('active'));
-    }
+  function clearActive() {
+    navLinks.forEach(link => link.classList.remove('active'));
+  }
 
-    function showContent(section) {
-      clearActive();
+  function showBoxes(section) {
+    clearActive();
+    if (section === 'home') {
+      menuHome.classList.add('active');
+      content.classList.remove('red-bg');
+      content.innerHTML = '';
+      mainText.style.display = 'block';
+      document.body.style.backgroundColor = 'green';
+    } else {
+      if (section === 'shaders') menuShaders.classList.add('active');
+      else if (section === 'games') menuGames.classList.add('active');
+      else if (section === 'software') menuSoftware.classList.add('active');
 
-      if (section === 'home') {
-        menuHome.classList.add('active');
-        content.classList.remove('red-bg');
-        content.innerHTML = '';
-        mainText.style.display = 'block';
-        document.body.style.backgroundColor = 'green';
-      } else {
-        if (section === 'shaders') menuShaders.classList.add('active');
-        else if (section === 'games') menuGames.classList.add('active');
-        else if (section === 'software') menuSoftware.classList.add('active');
+      mainText.style.display = 'none';
+      content.classList.add('red-bg');
+      document.body.style.backgroundColor = 'red';
 
-        mainText.style.display = 'none';
-        content.classList.add('red-bg');
-
-        const d = data[section];
-        content.innerHTML = `
-          <h1>${d.title}</h1>
-          <p>${d.description}</p>
-          <img src="${d.imgSrc}" alt="${d.title}">
-          <br>
-          <a href="${d.downloadLink}" target="_blank" class="download-link">دانلود ${d.title}</a>
+      const boxes = dataBoxes[section];
+      let htmlBoxes = '<div class="box-container">';
+      boxes.forEach(box => {
+        htmlBoxes += `
+          <div class="box">
+            <img src="${box.imgSrc}" alt="${box.title}">
+            <h3>${box.title}</h3>
+            <a href="${box.downloadLink}" target="_blank" class="download-btn">Download</a>
+          </div>
         `;
-        document.body.style.backgroundColor = 'red';
-      }
+      });
+      htmlBoxes += '</div>';
+      content.innerHTML = htmlBoxes;
     }
+  }
 
-    // نمایش صفحه اصلی اول
-    showContent('home');
+  // نمایش صفحه اصلی اول
+  showBoxes('home');
 
-    menuHome.addEventListener('click', () => showContent('home'));
-    menuShaders.addEventListener('click', () => showContent('shaders'));
-    menuGames.addEventListener('click', () => showContent('games'));
-    menuSoftware.addEventListener('click', () => showContent('software'));
-  </script>
+  menuHome.addEventListener('click', () => showBoxes('home'));
+  menuShaders.addEventListener('click', () => showBoxes('shaders'));
+  menuGames.addEventListener('click', () => showBoxes('games'));
+  menuSoftware.addEventListener('click', () => showBoxes('software'));
+</script>
 
 </body>
 </html>
+
