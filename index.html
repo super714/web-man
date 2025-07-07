@@ -149,34 +149,11 @@
   const menuSoftware = document.getElementById('menu-software');
   const navLinks = [menuHome, menuShaders, menuGames, menuSoftware];
 
-  // داده‌های باکس‌ها برای هر بخش
+  // داده‌های باکس‌ها رو اینجا اضافه کن خودت به شکل آرایه خالی برای شروع
   const dataBoxes = {
-    shaders: [
-      {
-        title: 'Shader Pack 1',
-        imgSrc: 'https://via.placeholder.com/220x140?text=Shader+Pack+1',
-        downloadLink: 'https://example.com/shader1.zip'
-      },
-      {
-        title: 'Shader Pack 2',
-        imgSrc: 'https://via.placeholder.com/220x140?text=Shader+Pack+2',
-        downloadLink: 'https://example.com/shader2.zip'
-      }
-    ],
-    games: [
-      {
-        title: 'Classicube',
-        imgSrc: 'https://static-cdn.jtvnw.net/jtv_user_pictures/classic-cube-profile_image-8cc25d7e3e10791f-300x300.png',
-        downloadLink: 'https://classicube.net/download'
-      }
-    ],
-    software: [
-      {
-        title: 'Software 1',
-        imgSrc: 'https://via.placeholder.com/220x140?text=Software+1',
-        downloadLink: 'https://example.com/software1.zip'
-      }
-    ]
+    shaders: [],
+    games: [],
+    software: []
   };
 
   function clearActive() {
@@ -201,6 +178,10 @@
       document.body.style.backgroundColor = 'red';
 
       const boxes = dataBoxes[section];
+      if(boxes.length === 0) {
+        content.innerHTML = '<p>هیچ آیتمی برای نمایش وجود ندارد.</p>';
+        return;
+      }
       let htmlBoxes = '<div class="box-container">';
       boxes.forEach(box => {
         htmlBoxes += `
@@ -227,4 +208,5 @@
 
 </body>
 </html>
+
 
