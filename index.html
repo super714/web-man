@@ -50,10 +50,9 @@
     margin: 20px;
   }
 
-  /* کارت‌های باکس */
   .box-container {
     display: flex;
-    justify-content: flex-start; /* از راست شروع کن */
+    justify-content: flex-start;
     gap: 20px;
     overflow-x: auto;
     padding: 10px 0;
@@ -92,7 +91,6 @@
     background-color: #007700;
   }
 
-  /* متن اصلی */
   #main-text h1 {
     font-size: 80px;
     margin: 20px 0;
@@ -149,11 +147,16 @@
   const menuSoftware = document.getElementById('menu-software');
   const navLinks = [menuHome, menuShaders, menuGames, menuSoftware];
 
-  // داده‌های باکس‌ها رو اینجا اضافه کن خودت به شکل آرایه خالی برای شروع
   const dataBoxes = {
     shaders: [],
-    games: [classicube],
-    software: [https://www.classicube.net/download/]
+    games: [
+      {
+        title: 'Classicube',
+        imgSrc: 'https://static-cdn.jtvnw.net/jtv_user_pictures/classic-cube-profile_image-8cc25d7e3e10791f-300x300.png',
+        downloadLink: 'https://classicube.net/download'
+      }
+    ],
+    software: []
   };
 
   function clearActive() {
@@ -208,5 +211,3 @@
 
 </body>
 </html>
-
-
