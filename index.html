@@ -91,14 +91,13 @@
 <body>
 
   <nav>
-    <a id="menu-shaders" class="active">شیدر پک‌ها</a>
+    <a id="menu-home" class="active">صفحه اصلی</a>
+    <a id="menu-shaders">شیدر پک‌ها</a>
     <a id="menu-games">بازی‌ها</a>
     <a id="menu-software">نرم‌افزارها</a>
   </nav>
 
-  <div id="content">
-    <!-- محتوای پویا اینجا ظاهر می‌شه -->
-  </div>
+  <div id="content"></div>
 
   <div id="main-text">
     <h1>سایت سوپر امیر</h1>
@@ -118,28 +117,28 @@
   <script>
     const content = document.getElementById('content');
     const mainText = document.getElementById('main-text');
+    const menuHome = document.getElementById('menu-home');
     const menuShaders = document.getElementById('menu-shaders');
     const menuGames = document.getElementById('menu-games');
     const menuSoftware = document.getElementById('menu-software');
-    const navLinks = [menuShaders, menuGames, menuSoftware];
+    const navLinks = [menuHome, menuShaders, menuGames, menuSoftware];
 
-    // اطلاعات بخش‌ها (عکس و لینک)
     const data = {
       shaders: {
         title: 'شیدر پک‌ها',
-        imgSrc: 'https://via.placeholder.com/600x400?text=Shader+Pack', // عکس تستی، بعدا لینک خودتو بذار
+        imgSrc: 'https://via.placeholder.com/600x400?text=Shader+Pack',
         downloadLink: 'https://example.com/shader-pack.zip',
         description: 'دانلود شیدر پک‌های خفن و با کیفیت بالا.'
       },
       games: {
         title: 'بازی‌ها',
-        imgSrc: 'https://via.placeholder.com/600x400?text=Games', // عکس تستی
+        imgSrc: 'https://via.placeholder.com/600x400?text=Games',
         downloadLink: 'https://example.com/game-download.zip',
         description: 'دانلود بازی‌های مهیج و جدید.'
       },
       software: {
         title: 'نرم‌افزارها',
-        imgSrc: 'https://via.placeholder.com/600x400?text=Software', // عکس تستی
+        imgSrc: 'https://via.placeholder.com/600x400?text=Software',
         downloadLink: 'https://example.com/software-download.zip',
         description: 'دانلود نرم‌افزارهای کاربردی و جدید.'
       }
@@ -151,35 +150,37 @@
 
     function showContent(section) {
       clearActive();
-      if (section === 'shaders') {
-        menuShaders.classList.add('active');
-      } else if (section === 'games') {
-        menuGames.classList.add('active');
-      } else if (section === 'software') {
-        menuSoftware.classList.add('active');
+
+      if (section === 'home') {
+        menuHome.classList.add('active');
+        content.classList.remove('red-bg');
+        content.innerHTML = '';
+        mainText.style.display = 'block';
+        document.body.style.backgroundColor = 'green';
+      } else {
+        if (section === 'shaders') menuShaders.classList.add('active');
+        else if (section === 'games') menuGames.classList.add('active');
+        else if (section === 'software') menuSoftware.classList.add('active');
+
+        mainText.style.display = 'none';
+        content.classList.add('red-bg');
+
+        const d = data[section];
+        content.innerHTML = `
+          <h1>${d.title}</h1>
+          <p>${d.description}</p>
+          <img src="${d.imgSrc}" alt="${d.title}">
+          <br>
+          <a href="${d.downloadLink}" target="_blank" class="download-link">دانلود ${d.title}</a>
+        `;
+        document.body.style.backgroundColor = 'red';
       }
-
-      // اگر بخوای محتوا رو نشون بدی:
-      content.classList.add('red-bg');
-      mainText.style.display = 'none';
-
-      const d = data[section];
-      content.innerHTML = `
-        <h1>${d.title}</h1>
-        <p>${d.description}</p>
-        <img src="${d.imgSrc}" alt="${d.title}">
-        <br>
-        <a href="${d.downloadLink}" target="_blank" class="download-link">دانلود ${d.title}</a>
-      `;
-      // پس‌زمینه صفحه (body) رو هم قرمز می‌کنیم یا نه؟  
-      // اگه خواستی، می‌تونیم این خط رو فعال کنیم:
-      // document.body.style.backgroundColor = 'red';
     }
 
-    // بارگذاری اولیه با نمایش شیدر پک‌ها
-    showContent('shaders');
+    // نمایش صفحه اصلی اول
+    showContent('home');
 
-    // اضافه کردن رویداد کلیک به منوها
+    menuHome.addEventListener('click', () => showContent('home'));
     menuShaders.addEventListener('click', () => showContent('shaders'));
     menuGames.addEventListener('click', () => showContent('games'));
     menuSoftware.addEventListener('click', () => showContent('software'));
@@ -187,5 +188,3 @@
 
 </body>
 </html>
-
-
